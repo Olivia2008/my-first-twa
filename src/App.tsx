@@ -12,7 +12,9 @@ function App() {
       <div className='Container'>
         <TonConnectButton />
 
-        <div className='Card'>
+        <div className='Card' onClick={()=>{
+          navigator.clipboard.writeText(address??'').then(()=>{alert('copy completely')})
+        }}>
           <b>Counter Address</b>
           <div className='Hint'>{address?.slice(0, 30) + '...'}</div>
         </div>
