@@ -134,7 +134,12 @@ open your telegram botfather: https://t.me/botfather
 - 输入你的github pages访问地址，即可在telegram中打开进行dapps的操作
 以下是操作图片展示
 
-<img src='/public/botfather.jpg' width=100 style="display: flex; margin-left: auto; margin-right: auto; width: 50%;">
-<img src='/public/dapp1.jpg' width=100 style="display: flex; margin-left: auto; margin-right: auto; width: 50%;">
-<img src='/public/dapp2.jpg' width=100 style="display: flex; margin-left: auto; margin-right: auto; width: 50%;">
-<img src='/public/dapp3.jpg' width=100 style="display: flex; margin-left: auto; margin-right: auto; width: 50%;">
+
+```html
+<div style="display: flex; justify-content: space-around">
+  <img src='/public/botfather.jpg' width=100>
+  <img src='/public/dapp1.jpg' width=100>
+  <img src='/public/dapp2.jpg' width=100>
+  <img src='/public/dapp3.jpg' width=100>
+</div>
+```
