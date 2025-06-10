@@ -113,7 +113,7 @@ export default App
 }
 ```
 
-Step 7: Publish web app as TWA in Telegram
+### Step 7: Publish web app as TWA in Telegram
 
 add the [TWA SDK](https://github.com/twa-dev)
 ```bash
@@ -134,8 +134,8 @@ open your telegram botfather: https://t.me/botfather
 - 输入你的github pages访问地址，即可在telegram中打开进行dapps的操作
 以下是操作图片展示
 
-<img src='/botfather.jpg' width='300'>
-<img src='/public/dapp1.jpg' width='300'>
-<img src='/public/dapp2.jpg' width='300'>
-<img src='/public/tonkeeper.jpg' width='300'>
-<img src='/public/dapp3.jpg' width='300'>
+<img src='botfather.jpg' width='300'>
+<img src='dapp1.jpg' width='300'>
+<img src='dapp2.jpg' width='300'>
+<img src='tonkeeper.jpg' width='300'>
+<img src='dapp3.jpg' width='300'>
