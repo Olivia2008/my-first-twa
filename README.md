@@ -135,7 +135,7 @@ open your telegram botfather: https://t.me/botfather
 以下是操作图片展示
 
 <img src='/botfather.jpg' width='300'>
-<img src='/public/dapp1.jpg' width='300'>
-<img src='/public/dapp2.jpg' width='300'>
-<img src='/public/tonkeeper.jpg' width='300'>
-<img src='/public/dapp3.jpg' width='300'>
+<img src='/dapp1.jpg' width='300'>
+<img src='/dapp2.jpg' width='300'>
+<img src='/tonkeeper.jpg' width='300'>
+<img src='/dapp3.jpg' width='300'>
