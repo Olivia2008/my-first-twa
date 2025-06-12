@@ -3,7 +3,7 @@ import Counter from '../contracts/counter';
 import { useTonClient } from './useTonClient';
 import { useAsyncInitialize } from './useAsyncInitialize';
 import { useTonConnect } from './useTonConnect'
-import { Address, type OpenedContract } from '@ton/core';
+import { Address, toNano, type OpenedContract } from '@ton/core';
 
 export function useCounterContract() {
   const client = useTonClient();
@@ -35,6 +35,7 @@ export function useCounterContract() {
     value: val,
     address: counterContract?.address.toString(),
     sendIncrement: () => {
+      // return counterContract?.sendIncrement(sender, toNano('0.05'), 5);
       return counterContract?.sendIncrement(sender);
     }
   };
