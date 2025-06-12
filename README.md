@@ -51,7 +51,7 @@ npm install @tonconnect/ui-react
 
 ```
 
-#### Vite.config.ts配置
+#### Vite.config.ts配置根路径
 ```ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -67,9 +67,10 @@ export default defineConfig({
 ```
 
 
-#### manifestUrl配置
+#### manifest配置
 将GitHub pages配置好后就可配置manifest URL
 
+**在main.tsx文件中配置manifestUrl**
 ```ts
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -81,6 +82,15 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </TonConnectUIProvider>,
 )
+```
+**在根目录public文件创建`tonconnect-manifest.json`**
+```bash
+{
+  "url": "https://olivia2008.github.io/my-first-twa",
+  "name": "Ausli First TWA",
+  "iconUrl":"https://olivia2008.github.io/my-first-twa/icon.svg"
+}
+
 ```
 
 #### 连接钱包
