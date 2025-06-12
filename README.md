@@ -21,6 +21,7 @@ open the faucet `https://t.me/testgiver_ton_bot` and request some coins from the
 
 参考：https://pages.github.com/
 
+**1、手动创建gh-pages分支，手动存放dist文件夹**
 - 1)根据提示创建page
 - 2)在github上创建twa工程，将dist文件放到分支gh-pages中
 - 3)在当前分支的Pages->settings,将Branch指向到gh-pages上
@@ -30,6 +31,75 @@ open the faucet `https://t.me/testgiver_ton_bot` and request some coins from the
 3、`<TonConnectUIProvider manifestUrl=‘https://username.github.io/your-project/tonconnect-manifest.json’>`
 4、访问my-first-twa
 https://olivia2008.github.io/my-first-twa/
+
+**2、用github自动创建分支、打包、部署**
+1) 在工程的根目录下创建`.github/workflow/deploy.yml`
+注：查看`.gitignore`文件不要忽略掉`.github`文件夹
+
+```bash
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+      runs=on: ubuntu-latest
+
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v2
+
+        - name: Setup Node
+          uses: actions/setup-node@v1
+          with:
+            node-version: 16
+
+        - name: Install dependencies
+          uses: bahmutov/npm-install@v1
+
+        - name: Build project
+          run: npm run build
+
+        - name: Upload production-ready build files
+          uses: actions/upload artifact@v2
+          with:
+            name: production-files
+            path: ./dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+```
+2）在github上确保工作流有读写权限
+在当前仓库的`settings/actions/general`上保存好可读写的权限设置
+
+3）提交添加的工作流到远程仓库
+
+4）查看`actions`有工作流正在部署，部署完成后在`code`中会生成一个新分支`gh-pages`
+
+5) 切换到主分支，`settings/pages` `Build and deployment/Branch`指向到`gh-pages`保存，再查看`Actions`此时分支`gh-pages`在重新编译
+
+6）在`Settings/Pages`可查看进入程序的链接地址`Your site is live at https://olivia2008.github.io/my-first-twa/`
+
 
 ### Step 5: Set up App with coding
 
